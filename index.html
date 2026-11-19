@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tech Made Simple</title>
+<style>
+  :root {
+    --ink: #1f2933;
+    --muted: #52606d;
+    --line: #e4e7eb;
+    --bg: #ffffff;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                 "Helvetica Neue", Arial, sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  /* Banner across the top */
+  .banner {
+    width: 100%;
+    background: var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 320px;
+    object-fit: cover;
+  }
+
+  /* Placeholder shown only until banner.jpg exists */
+  .banner-placeholder {
+    width: 100%;
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 16px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* Centred message */
+  main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(24px, 5vw, 44px);
+    line-height: 1.25;
+    font-weight: 600;
+    max-width: 22ch;
+    text-wrap: balance;
+  }
+
+  h1 span {
+    display: block;
+    margin-top: 16px;
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 400;
+    color: var(--muted);
+  }
+
+  footer {
+    padding: 24px;
+    text-align: center;
+    font-size: 15px;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+  }
+
+  @media (max-width: 600px) {
+    body { font-size: 18px; }
+    .banner img { max-height: 180px; }
+    main { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="banner">
+    <!-- Replace banner.jpg with your own image; keep the filename or update src. -->
+    <img src="banner.jpg" alt="Tech Made Simple"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+    <div class="banner-placeholder" style="display:none">Banner image goes here</div>
+  </div>
+
+  <main>
+    <h1>
+      This is the website from the QR code.
+      <span>Thanks for scanning along.</span>
+    </h1>
+  </main>
+
+  <footer>
+    Tech Made Simple
+  </footer>
+
+</body>
+</html>
