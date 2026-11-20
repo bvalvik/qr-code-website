@@ -3,127 +3,317 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tech Made Simple</title>
+<title>Smoky Hollow Barbecue — Menu</title>
 <style>
   :root {
-    --ink: #1f2933;
-    --muted: #52606d;
-    --line: #e4e7eb;
-    --bg: #ffffff;
+    --ink:      #14181f;
+    --navy:     #0b1b33;
+    --muted:    #5b5347;
+    --paper:    #fbf7ec;
+    --paper-2:  #f4eddc;
+    --rule:     #d8cbb0;
+    --gold:     #c8952a;
+    --gold-lt:  #f2d78a;
   }
 
   * { box-sizing: border-box; }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-  }
+  html, body { margin: 0; padding: 0; }
 
   body {
-    background: var(--bg);
+    background: var(--paper);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-                 "Helvetica Neue", Arial, sans-serif;
-    font-size: 20px;
-    line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
   }
 
-  /* Banner across the top */
+  /* ---------- banner ---------- */
   .banner {
     width: 100%;
-    background: var(--line);
-    border-bottom: 1px solid var(--line);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background: var(--navy);
     overflow: hidden;
+    border-bottom: 4px solid var(--gold);
   }
-
   .banner img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 320px;
+    max-height: 260px;
     object-fit: cover;
+    object-position: center 40%;
   }
 
-  /* Placeholder shown only until banner.jpg exists */
-  .banner-placeholder {
-    width: 100%;
-    min-height: 160px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--muted);
-    font-size: 16px;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  /* Centred message */
-  main {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 48px 24px;
+  /* ---------- masthead ---------- */
+  .masthead {
     text-align: center;
+    padding: 28px 20px 22px;
+    background: var(--navy);
+    color: var(--paper);
+    border-bottom: 4px solid var(--gold);
   }
-
-  h1 {
+  .masthead h1 {
     margin: 0;
-    font-size: clamp(24px, 5vw, 44px);
-    line-height: 1.25;
-    font-weight: 600;
-    max-width: 22ch;
+    font-size: clamp(26px, 7vw, 42px);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--gold-lt);
     text-wrap: balance;
   }
-
-  h1 span {
-    display: block;
-    margin-top: 16px;
-    font-size: clamp(16px, 2.5vw, 20px);
-    font-weight: 400;
-    color: var(--muted);
+  .masthead .tag {
+    margin-top: 8px;
+    font-size: clamp(12px, 3vw, 15px);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #cdbfa4;
+  }
+  .masthead .est {
+    margin-top: 14px;
+    font-style: italic;
+    font-size: 15px;
+    color: #b7a98f;
   }
 
-  footer {
-    padding: 24px;
+  /* ---------- menu body ---------- */
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 34px 20px 56px;
+  }
+
+  .section { margin-bottom: 40px; }
+
+  .section h2 {
+    margin: 0 0 6px;
+    font-size: clamp(19px, 4.6vw, 24px);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
     text-align: center;
-    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .section .stripe {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .section .stripe::before,
+  .section .stripe::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  .section .stripe span {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .item {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    padding: 7px 0;
+  }
+
+  .item .name {
+    flex: 0 1 auto;
+    font-weight: 600;
+  }
+
+  .item .dots {
+    flex: 1 1 auto;
+    border-bottom: 2px dotted var(--rule);
+    transform: translateY(-4px);
+    min-width: 18px;
+  }
+
+  .item .price {
+    flex: 0 0 auto;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .item .note {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
     color: var(--muted);
-    border-top: 1px solid var(--line);
+    line-height: 1.35;
+    margin-top: 2px;
+  }
+
+  .item-row { display: block; }
+
+  /* featured box */
+  .feature {
+    background: var(--paper-2);
+    border: 2px solid var(--rule);
+    border-top: 5px solid var(--gold);
+    padding: 18px 20px 14px;
+    margin-bottom: 40px;
+  }
+  .feature h2 {
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
+
+  /* ---------- footer ---------- */
+  footer {
+    text-align: center;
+    padding: 26px 20px 34px;
+    background: var(--navy);
+    color: #b7a98f;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+  footer strong {
+    display: block;
+    color: var(--gold-lt);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  footer .fine {
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    color: #7e745f;
   }
 
   @media (max-width: 600px) {
-    body { font-size: 18px; }
-    .banner img { max-height: 180px; }
-    main { padding: 32px 20px; }
+    body { font-size: 17px; }
+    .banner img { max-height: 170px; }
+    main { padding: 26px 16px 44px; }
+    .item { padding: 6px 0; }
+  }
+
+  @media print {
+    body { background: #fff; }
+    .banner, footer { display: none; }
   }
 </style>
 </head>
 <body>
 
   <div class="banner">
-    <!-- Replace banner.jpg with your own image; keep the filename or update src. -->
-    <img src="banner.jpg" alt="Tech Made Simple"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-    <div class="banner-placeholder" style="display:none">Banner image goes here</div>
+    <img src="banner.jpg" alt="Smoky Hollow Barbecue">
   </div>
 
+  <header class="masthead">
+    <h1>Smoky Hollow Barbecue</h1>
+    <div class="tag">Pit Cooked &middot; Slow Smoked &middot; Served Hot</div>
+    <div class="est">Est. 1949 &mdash; Highway 61, Outside of Town</div>
+  </header>
+
   <main>
-    <h1>
-      This is the website from the QR code.
-      <span>Thanks for scanning along.</span>
-    </h1>
+
+    <div class="feature">
+      <h2>The Pit Special</h2>
+      <div class="item">
+        <span class="name">The Hollow Plate
+          <span class="note">Chopped pork, two ribs, baked beans, slaw, cornbread</span>
+        </span>
+        <span class="dots"></span>
+        <span class="price">$1.25</span>
+      </div>
+    </div>
+
+    <section class="section">
+      <h2>Barbecue Plates</h2>
+      <div class="stripe"><span>All plates come with two sides</span></div>
+
+      <div class="item"><span class="name">Sliced Pork Plate</span><span class="dots"></span><span class="price">$0.90</span></div>
+      <div class="item"><span class="name">Chopped Beef Plate</span><span class="dots"></span><span class="price">$1.00</span></div>
+      <div class="item"><span class="name">Rib Plate
+        <span class="note">Five ribs, cut thick</span>
+      </span><span class="dots"></span><span class="price">$1.10</span></div>
+      <div class="item"><span class="name">Half Smoked Chicken</span><span class="dots"></span><span class="price">$0.95</span></div>
+      <div class="item"><span class="name">Burnt Ends</span><span class="dots"></span><span class="price">$0.85</span></div>
+    </section>
+
+    <section class="section">
+      <h2>Sandwiches</h2>
+      <div class="stripe"><span>Served on a soft bun</span></div>
+
+      <div class="item"><span class="name">Barbecue Pork Sandwich</span><span class="dots"></span><span class="price">$0.35</span></div>
+      <div class="item"><span class="name">Barbecue Beef Sandwich</span><span class="dots"></span><span class="price">$0.40</span></div>
+      <div class="item"><span class="name">Rib Sandwich</span><span class="dots"></span><span class="price">$0.45</span></div>
+      <div class="item"><span class="name">Sloppy Joe</span><span class="dots"></span><span class="price">$0.30</span></div>
+      <div class="item"><span class="name">Hamburger</span><span class="dots"></span><span class="price">$0.25</span></div>
+      <div class="item"><span class="name">Cheeseburger</span><span class="dots"></span><span class="price">$0.30</span></div>
+    </section>
+
+    <section class="section">
+      <h2>By the Pound</h2>
+      <div class="stripe"><span>Wrapped in butcher paper</span></div>
+
+      <div class="item"><span class="name">Chopped Pork</span><span class="dots"></span><span class="price">$0.85 lb</span></div>
+      <div class="item"><span class="name">Sliced Beef</span><span class="dots"></span><span class="price">$1.15 lb</span></div>
+      <div class="item"><span class="name">Spare Ribs</span><span class="dots"></span><span class="price">$0.95 lb</span></div>
+      <div class="item"><span class="name">Whole Smoked Chicken</span><span class="dots"></span><span class="price">$1.50</span></div>
+    </section>
+
+    <section class="section">
+      <h2>Vegetables &amp; Sides</h2>
+      <div class="stripe"><span>Cooked the old way</span></div>
+
+      <div class="item"><span class="name">Macaroni &amp; Cheese</span><span class="dots"></span><span class="price">$0.20</span></div>
+      <div class="item"><span class="name">Collard Greens
+        <span class="note">With fatback</span>
+      </span><span class="dots"></span><span class="price">$0.15</span></div>
+      <div class="item"><span class="name">Fried Okra</span><span class="dots"></span><span class="price">$0.20</span></div>
+      <div class="item"><span class="name">Hush Puppies
+        <span class="note">Six to an order</span>
+      </span><span class="dots"></span><span class="price">$0.15</span></div>
+      <div class="item"><span class="name">Baked Beans</span><span class="dots"></span><span class="price">$0.15</span></div>
+      <div class="item"><span class="name">Potato Salad</span><span class="dots"></span><span class="price">$0.15</span></div>
+      <div class="item"><span class="name">Cole Slaw</span><span class="dots"></span><span class="price">$0.10</span></div>
+      <div class="item"><span class="name">Cornbread
+        <span class="note">Two pieces</span>
+      </span><span class="dots"></span><span class="price">$0.10</span></div>
+    </section>
+
+    <section class="section">
+      <h2>Desserts</h2>
+      <div class="stripe"><span>Made this morning</span></div>
+
+      <div class="item"><span class="name">Banana Pudding</span><span class="dots"></span><span class="price">$0.20</span></div>
+      <div class="item"><span class="name">Pecan Pie</span><span class="dots"></span><span class="price">$0.25</span></div>
+      <div class="item"><span class="name">Peach Cobbler</span><span class="dots"></span><span class="price">$0.25</span></div>
+      <div class="item"><span class="name">Sweet Potato Pie</span><span class="dots"></span><span class="price">$0.25</span></div>
+    </section>
+
+    <section class="section">
+      <h2>Drinks</h2>
+      <div class="stripe"><span>Served cold</span></div>
+
+      <div class="item"><span class="name">Sweet Tea
+        <span class="note">Bring your cup back for a refill</span>
+      </span><span class="dots"></span><span class="price">$0.10</span></div>
+      <div class="item"><span class="name">Coffee</span><span class="dots"></span><span class="price">$0.10</span></div>
+      <div class="item"><span class="name">Buttermilk</span><span class="dots"></span><span class="price">$0.15</span></div>
+      <div class="item"><span class="name">Coca-Cola</span><span class="dots"></span><span class="price">$0.10</span></div>
+      <div class="item"><span class="name">Root Beer</span><span class="dots"></span><span class="price">$0.10</span></div>
+    </section>
+
   </main>
 
   <footer>
-    Tech Made Simple
+    <strong>Smoky Hollow Barbecue</strong>
+    Open Tuesday through Sunday &middot; 11 in the morning until 9 at night<br>
+    Closed Mondays &middot; Cash and carry
+    <div class="fine">Demonstration menu &middot; Tech Made Simple</div>
   </footer>
 
 </body>
